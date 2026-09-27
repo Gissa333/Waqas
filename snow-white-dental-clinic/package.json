@@ -1,0 +1,12 @@
+{
+  "name": "snow-white-dental-clinic",
+  "version": "1.0.0",
+  "description": "نظام إدارة عيادة بياض الثلج لطب الأسنان",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^38.2.0"
+  }
+}
