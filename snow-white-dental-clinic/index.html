@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بياض الثلج | إدارة عيادة الأسنان</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">✦</div>
+      <div>
+        <h1>بياض الثلج</h1>
+        <span>عيادة طب الأسنان</span>
+      </div>
+    </div>
+    <nav>
+      <button class="nav-btn active" data-section="dashboard">الرئيسية</button>
+      <button class="nav-btn" data-section="patients">المرضى</button>
+      <button class="nav-btn" data-section="appointments">المواعيد</button>
+      <button class="nav-btn" data-section="treatments">العلاجات</button>
+      <button class="nav-btn" data-section="finance">الحسابات</button>
+    </nav>
+    <div class="clinic-status"><span></span> العيادة مفتوحة</div>
+  </aside>
+
+  <main class="content">
+    <header class="topbar">
+      <div>
+        <h2 id="page-title">لوحة التحكم</h2>
+        <p id="today"></p>
+      </div>
+      <button class="primary" id="quick-add">+ إضافة مريض</button>
+    </header>
+
+    <section id="dashboard" class="section active">
+      <div class="stats">
+        <article><span>إجمالي المرضى</span><strong id="stat-patients">0</strong></article>
+        <article><span>مواعيد اليوم</span><strong id="stat-appointments">0</strong></article>
+        <article><span>العلاجات المسجلة</span><strong id="stat-treatments">0</strong></article>
+        <article><span>إجمالي المدفوعات</span><strong id="stat-revenue">0 ر.س</strong></article>
+      </div>
+      <div class="grid-two">
+        <div class="card">
+          <div class="card-head"><h3>مواعيد اليوم</h3><button class="text-btn" data-go="appointments">عرض الكل</button></div>
+          <div id="today-list" class="list"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>آخر المرضى</h3><button class="text-btn" data-go="patients">عرض الكل</button></div>
+          <div id="recent-patients" class="list"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="patients" class="section">
+      <div class="section-head">
+        <div><h3>سجل المرضى</h3><p>إضافة وإدارة بيانات المرضى وملفاتهم.</p></div>
+        <button class="primary" id="add-patient">+ مريض جديد</button>
+      </div>
+      <div class="card">
+        <input class="search" id="patient-search" placeholder="ابحث بالاسم أو رقم الهاتف...">
+        <div class="table-wrap"><table><thead><tr><th>الاسم</th><th>الهاتف</th><th>العمر</th><th>آخر زيارة</th><th>الإجراء</th></tr></thead><tbody id="patients-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="appointments" class="section">
+      <div class="section-head">
+        <div><h3>المواعيد</h3><p>تنظيم مواعيد المرضى ومتابعة حالة الزيارة.</p></div>
+        <button class="primary" id="add-appointment">+ موعد جديد</button>
+      </div>
+      <div class="card">
+        <div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>الوقت</th><th>المريض</th><th>الطبيب</th><th>الحالة</th></tr></thead><tbody id="appointments-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="treatments" class="section">
+      <div class="section-head">
+        <div><h3>العلاجات</h3><p>سجل إجراءات الأسنان والتكلفة لكل زيارة.</p></div>
+        <button class="primary" id="add-treatment">+ تسجيل علاج</button>
+      </div>
+      <div class="card">
+        <div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>المريض</th><th>العلاج</th><th>الطبيب</th><th>التكلفة</th></tr></thead><tbody id="treatments-table"></tbody></table></div>
+      </div>
+    </section>
+
+    <section id="finance" class="section">
+      <div class="section-head"><div><h3>الحسابات</h3><p>ملخص الإيرادات والمدفوعات المسجلة.</p></div></div>
+      <div class="stats finance-stats">
+        <article><span>الإيرادات</span><strong id="finance-revenue">0 ر.س</strong></article>
+        <article><span>عدد العمليات</span><strong id="finance-count">0</strong></article>
+      </div>
+      <div class="card"><div class="table-wrap"><table><thead><tr><th>التاريخ</th><th>المريض</th><th>الوصف</th><th>المبلغ</th></tr></thead><tbody id="finance-table"></tbody></table></div></div>
+    </section>
+  </main>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-box">
+      <button class="close" id="close-modal">×</button>
+      <h3 id="modal-title">إضافة</h3>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
